@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="DB-Messenger" namespace="IHI.Database">
+  <class name="IHI.Database.Friend,DB-Messenger" table="habbos">
+    <id name="habbo_id" column="habbo_id" type="int" unsaved-value="0">
+      <generator class="native" />
+    </id>
+    <property name="username" column="username" type="string" not-null="true" length="16" unique="true" />
+    <property name="figure" column="figure" type="string" not-null="true" length="255" />
+    <property name="gender" column="gender" type="boolean" not-null="true" />
+    <property name="motto" column="motto" type="string" not-null="true" length="64" />
+    <property name="last_access" column="last_access" type="datetime" not-null="false" />
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="DB-Messenger" namespace="IHI.Database">
+  <class name="IHI.Database.MessengerFriendship,DB-Messenger" table="messenger_friendships">
+    <id name="friendship_id" column="friendship_id" type="int" unsaved-value="0">
+      <generator class="native" />
+    </id>
+    <property name="habbo_a_id" column="habbo_a_id" not-null="true" type="int" />
+    <property name="category_a_id" column="category_a_id" not-null="false" type="int" />
+    <property name="habbo_b_id" column="habbo_b_id" not-null="true" type="int" />
+    <property name="category_b_id" column="category_b_id" not-null="false" type="int" />
+
+    <many-to-one name="habbo_a" column="habbo_a_id" not-null="true" class="IHI.Database.Habbo,DB-Main" />
+    <many-to-one name="habbo_b" column="habbo_b_id" not-null="true" class="IHI.Database.Habbo,DB-Main" />
+    <many-to-one name="category_a" column="category_a_id" not-null="false" class="IHI.Database.MessengerCategory,DB-Messenger" />
+    <many-to-one name="category_b" column="category_b_id" not-null="false" class="IHI.Database.MessengerCategory,DB-Messenger" />
+  </class>
+</hibernate-mapping>
